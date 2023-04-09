@@ -20,14 +20,16 @@
             <P>you can share and exchange your opinions , inpressions , and emotions</P>
             <p>about various books!</p>
 
-            <div class="btn-wrapper col-10 mx-auto">
+
+             <div class="btn-wrapper col-10 mx-auto">
               <div class="row">
-                <a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="new_user_session">Log in</a>
+              <%= link_to 'Log in', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
               </div>
 
               <div class="row">
-                <a class="btn btn-success btn-sm btn-block sign_up" href="new_user_registration">sign up</a>
+               <%= link_to 'sign up', new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
               </div>
+
 
             </div>
           </div>
