@@ -29,20 +29,21 @@
 <h2 class="mt-3">New book</h2>
 
   <%= form_with model: @book_new do|f| %>
+   <thead>
   <div class="form-group">
-    <h4>Title</h4>
-    <%= f.text_field :title %>
+    <th>Title</th>
+    <%= f.text_field :title, class: "form-control book_body"  %>
   </div>
 
   <div class="form-group">
-    <h4>Opinion</h4>
-    <%= f.text_area :body %>
+    <th>Opinion</th>
+    <%= f.text_area :body, class: "form-control book_body"  %>
   </div>
 
   <div class="form-group">
     <%= f.submit 'Create Book', class: "btn btn-success"%>
   </div>
-
+</thead>
 <% end %>
     </div>
     <div class="col-md-8 offset-md-1">
@@ -50,12 +51,31 @@
 
 <table class="table">
 <div>
-  <%= image_tag @book.get_image %>
-  <p>Title：<%= @book.title %></p>
-  <p>Opinion：<%= @book.body %></p>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to user_path(@user.id) do %>
+        <%= image_tag @book.get_image %>
+        <br>
+        <%= @user.name %>
+        <% end %>
+      </td>
+  <td>
+     <%= link_to book_path(@book.id) do %>
+  <p><%= @book.title %></p>
+  <% end %>
+  </td>
+  <td>
+  <p><%= @book.body %></p>
+  </td>
+  <td>
   <%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-success" %>
+  </td>
+  <td>
   <%= link_to 'Destroy', book_path(@book.id), method: :delete, class: "btn btn-smbtn-danger" %>
-
+  </td>
+  </tr>
+</tbody>
 </div>
 </table>
     </div>
