@@ -1,5 +1,5 @@
 <main>
-  <p>You have created book successfully.</p>
+   <%= flash[:notice] %>
         <p id="notice"></p>
  <div class="container">
   <div class="row">
@@ -21,7 +21,7 @@
 </table>
 
 <div class="row">
-<%= link_to edit_user_path(@user.id),  class: 'btn btn-outline-secondary' do %>
+<%= link_to edit_user_path(@user.id),  class: 'btn btn-outline-secondary btn-block' do %>
 <i class="fa fa-user-cog"></i>
 <% end %>
 </div>
@@ -72,7 +72,7 @@
   <%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-success" %>
   </td>
   <td>
-  <%= link_to 'Destroy', book_path(@book.id), method: :delete, class: "btn btn-smbtn-danger" %>
+  <%= link_to 'Destroy', book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger" %>
   </td>
   </tr>
 </tbody>
